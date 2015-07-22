@@ -1,0 +1,18 @@
+(source gnu)
+(source melpa)
+
+(package-file "~/.cask/cask.el")
+
+(depends-on "company")
+(depends-on "company-c-headers")
+(depends-on "fill-column-indicator")
+(depends-on "flycheck-cask")
+(depends-on "flycheck-color-mode-line")
+(depends-on "flx-ido")
+(depends-on "monokai-theme")
+(depends-on "neotree")
+(depends-on "powerline")
+(depends-on "scala-mode2")
+(depends-on "smartparens")
+(depends-on "tuareg")
+(depends-on "yasnippet")

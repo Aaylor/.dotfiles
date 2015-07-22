@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: includeg
+# key: Inc
+# --
+#include <$0>
+$1

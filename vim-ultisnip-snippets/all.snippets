@@ -1,0 +1,124 @@
+# This file contains snippets that are always defined.
+
+global !p
+import string, vim
+
+""" Maps a filetype to comment format used for boxes.
+Automatically filled during usage """
+_commentDict = { }
+
+def _parse_comments(s):
+	""" Parses vim's comments option to extract comment format """
+	i = iter(s.split(","))
+
+	rv = []
+	try:
+		while True:
+			# Get the flags and text of a comment part
+			flags,text = i.next().split(':', 1)
+
+			if len(flags) == 0:
+				if len(text) == 1:
+					rv.append((text,text,text,""))
+
+			#parse 3-part comment, but ignore those with 0 flags
+			elif flags[0] == 's' and '0' not in flags:
+				ctriple = []
+				indent = ""
+
+				if flags[-1] in string.digits:
+					indent = " " * int(flags[-1])
+				ctriple.append(text)
+
+				flags,text = i.next().split(':', 1)
+				assert(flags[0] == 'm')
+				ctriple.append(text)
+
+				flags,text = i.next().split(':', 1)
+				assert(flags[0] == 'e')
+				ctriple.append(text)
+				ctriple.append(indent)
+
+				rv.append(ctriple)	
+
+			elif flags[0] == 'b':
+				if len(text) == 1:
+					rv.insert(0, (text,text,text,""))	
+
+	except StopIteration:
+		return rv
+
+
+def _get_comment_format():
+	""" Returns a 4-element tuple representing the comment format for the
+	current file """
+
+	ft = vim.eval("&filetype")
+
+	# Check if the comment dict has the format for the current file
+	if _commentDict.has_key(ft):
+		return _commentDict[ft]
+
+	# Otherwise parse vim's comment and add it for later use
+	commentformat = _parse_comments(vim.eval("&comments"))[0]
+	_commentDict[ft] = commentformat
+
+	return commentformat
+
+
+def make_box(twidth, bwidth = None):
+	if bwidth is None:
+		bwidth = twidth + 2
+	b,m,e,i = _get_comment_format()
+	sline = b + m + bwidth * m + 2 * m
+	nspaces = (bwidth - twidth)//2
+	mlines = i + m + " " + " " * nspaces
+	mlinee = " " + " " * (bwidth - twidth - nspaces) + m
+	eline = i + 2 * m + bwidth * m + m + e
+	return sline, mlines, mlinee, eline
+
+endglobal
+
+
+snippet box "A nice box."
+`!p
+box = make_box(len(t[1]))
+snip.rv = box[0] + '\n' + box[1]
+`${1:content}`!p
+box = make_box(len(t[1]))
+snip.rv = box[2] + '\n' + box[3]`
+$0
+endsnippet
+
+snippet bbox "A nice box."
+`!p
+box = make_box(len(t[1]), 71)
+snip.rv = box[0] + '\n' + box[1]
+`${1:content}`!p
+box = make_box(len(t[1]), 71)
+snip.rv = box[2] + '\n' + box[3]`
+$0
+endsnippet
+
+snippet cdate
+`!v strftime("%d/%m/%y")`
+endsnippet
+
+snippet cdate_eng
+`!v strftime("%m/%d/%y")`
+endsnippet
+
+snippet ,, "bracket" i
+[${1:/* something */}]$0
+endsnippet
+
+##########################
+# VIM MODELINE GENERATOR #
+##########################
+# See advice on `:help 'tabstop'` for why these values are set. Uses second
+# modeline form ('set') to work in languages with comment terminators
+# (/* like C */).
+snippet modeline "Vim modeline"
+vim`!v ':set '. (&expandtab ? printf('et sw=%i ts=%i', &sw, &ts) : printf('noet sts=%i sw=%i ts=%i', &sts, &sw, &ts)) . (&tw ? ' tw='. &tw : '') . ':'`
+endsnippet
+
