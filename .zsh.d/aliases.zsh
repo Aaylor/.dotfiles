@@ -4,9 +4,9 @@ alias df='df -h'
 alias du='du -h -d 2'
 
 
-alias ls='ls -ilah'             # ls as list
-alias psa="ps aux"              # display all processus
-alias psg="ps aux | grep "      # grep on all processus
+alias ls='ls -ilah --color=auto'             # ls as list
+alias psa="ps aux"                           # display all processus
+alias psg="ps aux | grep "                   # grep on all processus
 
 # Shortcuts
 alias j="jobs"
