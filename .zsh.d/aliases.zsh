@@ -14,13 +14,16 @@ alias c='clear'
 alias zar='source $HOME/.zsh.d/aliases.zsh'
 
 # Editor shortcuts
-alias vi='/usr/local/bin/vim -p'
-alias vim='/usr/local/bin/vim -p'
+test `uname` = "Darwin" && \
+     alias vim='/usr/local/bin/vim -p' ||
+     alias vim='vim -p'
+
+alias vi='vim'
 alias gvim='gvim -p'
 
 test `uname` = "Darwin" && \
-    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs' || \
-    alias emacs='emacs -mm'
+     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs' || \
+     alias emacs='emacs -mm'
 
 # Git shortcuts
 alias gi="$EDITOR .gitignore"
