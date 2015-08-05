@@ -4,7 +4,9 @@
 ;; Trailing spaces removes before save
 ;(add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
 
-(load-theme 'monokai t)
+(add-to-list 'load-path "~/.emacs.d/colorscheme")
+(require 'color-theme-tomorrow)
+(color-theme-tomorrow-night-bright)
 
 (setq
  inhibit-startup-message t         ;; remove startup message
