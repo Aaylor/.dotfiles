@@ -15,7 +15,6 @@
 (require 'ocp-indent)
 (ocp-setup-indent)
 
-(add-hook 'tuareg-mode-hook 'tuareg-imenu-set-imenu)
 (autoload 'tuareg-mode "tuareg")
 
 ;;; 02_ocaml.el ends here
