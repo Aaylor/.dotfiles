@@ -7,7 +7,9 @@
 
 (defun my-set-tab-mode ()
   (when (or (string-match ".ml$" buffer-file-name)
-            (string-match ".mli$" buffer-file-name))
+            (or (string-match ".mli$" buffer-file-name)
+                (or (string-match ".mll$" buffer-file-name)
+                    (string-match ".mly$" buffer-file-name))))
     (load "~/.emacs.d/personal/02_ocaml.el"))
 
   (when (string-match ".scala$" buffer-file-name)
