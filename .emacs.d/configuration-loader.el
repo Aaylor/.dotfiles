@@ -21,6 +21,9 @@
 
   (when (string-match ".v$" buffer-file-name)
     (load "~/.emacs.d/personal/05_coq.el"))
+
+  (when (string-match ".tex$" buffer-file-name)
+    (load "~/.emacs.d/personal/06_latex.el"))
   )
 
 

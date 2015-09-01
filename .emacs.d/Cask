@@ -16,3 +16,10 @@
 (depends-on "smartparens")
 (depends-on "tuareg")
 (depends-on "yasnippet")
+
+;; latex
+(depends-on "latex-preview-pane")
+(depends-on "auctex-latexmk")
+(depends-on "company-math")
+(depends-on "latex-extra")
+(depends-on "latex-pretty-symbols")
