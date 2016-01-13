@@ -57,6 +57,9 @@
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c C-c") 'magit-commit)
+(global-set-key (kbd "C-c C-f") 'magit-fetch)
+(global-set-key (kbd "C-c C-p") 'magit-pull)
+(global-set-key (kbd "C-c M-p") 'magit-push)
 
 ;; powerline
 (require 'powerline)
