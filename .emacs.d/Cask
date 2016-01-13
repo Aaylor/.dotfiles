@@ -17,6 +17,7 @@
 (depends-on "yasnippet")
 (depends-on "whitespace")
 
+
 ;; Scala
 (depends-on "scala-mode2")
 (depends-on "ensime")
@@ -29,8 +30,11 @@
 (depends-on "latex-extra")
 (depends-on "latex-pretty-symbols")
 
+
 ;; git
 (depends-on "git-gutter")
+(depends-on "magit")
+
 
 ;; org-mode
 (depends-on "org")

@@ -54,6 +54,10 @@
 (global-git-gutter-mode +1)
 (global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
 
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c C-c") 'magit-commit)
+
 ;; powerline
 (require 'powerline)
 (powerline-center-theme)
