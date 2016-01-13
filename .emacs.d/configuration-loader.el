@@ -24,9 +24,12 @@
 
   (when (string-match ".tex$" buffer-file-name)
     (load "~/.emacs.d/personal/06_latex.el"))
+
+  (when (string-match ".html" buffer-file-name)
+    (load "~/.emacs.d/personal/07_web.el"))
   )
 
-
+(load "~/.emacs.d/personal/08_org.el")
 (add-hook 'find-file-hook 'my-set-tab-mode)
 
 ;;; configuration-loader.el ends here

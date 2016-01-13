@@ -12,10 +12,15 @@
 (depends-on "monokai-theme")
 (depends-on "neotree")
 (depends-on "powerline")
-(depends-on "scala-mode2")
 (depends-on "smartparens")
 (depends-on "tuareg")
 (depends-on "yasnippet")
+(depends-on "whitespace")
+
+;; Scala
+(depends-on "scala-mode2")
+(depends-on "ensime")
+
 
 ;; latex
 (depends-on "latex-preview-pane")
@@ -23,3 +28,9 @@
 (depends-on "company-math")
 (depends-on "latex-extra")
 (depends-on "latex-pretty-symbols")
+
+;; git
+(depends-on "git-gutter")
+
+;; org-mode
+(depends-on "org")

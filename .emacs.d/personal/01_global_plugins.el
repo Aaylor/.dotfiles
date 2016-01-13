@@ -46,6 +46,13 @@
 ;; neotree
 (require 'neotree)
 (global-set-key [(shift f1)] 'neotree-toggle)
+(define-key neotree-mode-map "i" #'neotree-enter-vertical-split)
+(define-key neotree-mode-map "I" #'neotree-enter-horizontal-split)
+
+;; git-gutter
+(require 'git-gutter)
+(global-git-gutter-mode +1)
+(global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
 
 ;; powerline
 (require 'powerline)

@@ -2,7 +2,7 @@
 ;;; Code:
 
 ; Preview mode
-(latex-preview-pane-mode)
+;; (latex-preview-pane-mode)
 
 ; Auctex w/ latexmk
 (require 'auctex-latexmk)

@@ -67,10 +67,6 @@
 (global-set-key [f5]   'compile)
 (global-set-key [f6]   'interrupt-and-recompile)
 (global-set-key [f7]   'next-error)
-(global-set-key [(f8)] 'caml-types-show-type)
-(global-set-key [(f9)] 'merlin-refresh)
-(global-set-key [(f10)] 'merlin-error-next)
-(global-set-key [(f12)] 'merlin-restart-process)
 (global-set-key [(control f7)]   'previous-error)
 (global-set-key [(shift f7)]   'first-error)
 (global-set-key [(control f10)] 'merlin-error-prev)
@@ -78,9 +74,6 @@
 (global-set-key [(ctrl x)(down)] 'end-of-buffer)
 (global-set-key [(ctrl x)(end)] 'save-buffers-kill-terminal)
 (global-set-key [(control tab)] 'company-complete)
-;; (global-set-key [(control tab)] 'merlin-try-completion)
-(global-set-key [(control c) t] 'merlin-type-expr)
-(global-set-key [(ctrl c)(ctrl m)] 'merlin-document)
 
 ;; Auto-kill compilation process and recompile
 (defun interrupt-and-recompile ()
@@ -94,6 +87,9 @@
     (kill-buffer "*compilation*"))
   (recompile)
 )
+
+;; change dictionary
+(setq-default ispell-program-name "aspell")
 
 ;; remove useless bars
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
