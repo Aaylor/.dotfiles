@@ -8,3 +8,17 @@ function random_cowday() {
 
 # Usage of facebook path picker.
 function fp() { "$@" | fpp }
+
+
+
+# Utilitary function for docker
+function dstart() {
+    docker-machine start "$1" && \
+        eval `docker-machine env "$1"`
+}
+
+function dattach() {
+    docker start "$1" && docker attach "$1"
+}
+
+# to continue...

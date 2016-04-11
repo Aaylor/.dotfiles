@@ -4,9 +4,9 @@ alias df='df -h'
 alias du='du -h -d 2'
 
 
-alias ls='ls -ilah --color=auto'             # ls as list
-alias psa="ps aux"                           # display all processus
-alias psg="ps aux | grep "                   # grep on all processus
+alias ls='ls -ilah'             # ls as list
+alias psa="ps aux"              # display all processus
+alias psg="ps aux | grep "      # grep on all processus
 
 # Shortcuts
 alias j="jobs"
@@ -14,16 +14,13 @@ alias c='clear'
 alias zar='source $HOME/.zsh.d/aliases.zsh'
 
 # Editor shortcuts
-test `uname` = "Darwin" && \
-     alias vim='/usr/local/bin/vim -p' ||
-     alias vim='vim -p'
-
-alias vi='vim'
+alias vi='/usr/local/bin/vim -p'
+alias vim='/usr/local/bin/vim -p'
 alias gvim='gvim -p'
 
 test `uname` = "Darwin" && \
-     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs' || \
-     alias emacs='emacs -mm'
+    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs' || \
+    alias emacs='emacs -mm'
 
 # Git shortcuts
 alias gi="$EDITOR .gitignore"
