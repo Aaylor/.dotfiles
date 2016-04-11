@@ -29,22 +29,11 @@
 (global-linum-mode 1)
 
 (cond
- ((string-equal system-type "windows-nt") ; Microsoft Windows
-  (progn
-    (message "Microsoft Windows")))
- ((string-equal system-type "darwin") ; Mac OS X
-  (progn
-    (message "Mac OS X")))
- ((string-equal system-type "gnu/linux") ; linux
-  (progn
-    (message "Linux"))))
-
-(cond
  ((string-equal system-type "darwin")
   (global-set-key [(meta h)] 'ns-do-hide-emacs)
   (global-set-key [(meta H)] 'ns-do-hide-others)
   (global-set-key [(meta v)] 'yank)
-  (global-set-key [(meta s)] 'kill-ring-save)
+  ;; (global-set-key [(meta s)] 'kill-ring-save)
   (global-set-key [(meta S)] 'write-file)
   (global-set-key [(meta p)] 'ps-print-buffer)
   (global-set-key [(meta o)] 'find-file)))
@@ -74,6 +63,8 @@
 (global-set-key [(ctrl x)(down)] 'end-of-buffer)
 (global-set-key [(ctrl x)(end)] 'save-buffers-kill-terminal)
 (global-set-key [(control tab)] 'company-complete)
+
+(global-set-key [(meta f10)] 'toggle-frame-fullscreen)
 
 ;; Auto-kill compilation process and recompile
 (defun interrupt-and-recompile ()

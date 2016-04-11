@@ -69,6 +69,11 @@
 (require 'powerline)
 (powerline-center-theme)
 
+;; sr-speedbar
+(require 'sr-speedbar)
+(global-set-key (kbd "M-s") 'sr-speedbar-toggle)
+(speedbar-add-supported-extension ".bash")
+
 ;; smartparens
 (electric-pair-mode 1)
 (require 'smartparens-config)

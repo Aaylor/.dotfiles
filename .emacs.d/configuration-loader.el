@@ -5,31 +5,31 @@
 (load "~/.emacs.d/personal/00_global.el")
 (load "~/.emacs.d/personal/01_global_plugins.el")
 
-(defun my-set-tab-mode ()
-  (when (or (string-match ".ml$" buffer-file-name)
-            (or (string-match ".mli$" buffer-file-name)
-                (or (string-match ".mll$" buffer-file-name)
-                    (string-match ".mly$" buffer-file-name))))
-    (load "~/.emacs.d/personal/02_ocaml.el"))
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
-  (when (string-match ".scala$" buffer-file-name)
-    (load "~/.emacs.d/personal/03_scala.el"))
 
-  (when (or (string-match ".c$" buffer-file-name)
-            (string-match ".h$" buffer-file-name))
-    (load "~/.emacs.d/personal/04_c.el"))
+(defun pfolder (file)
+  (concat "~/.emacs.d/personal/" file))
 
-  (when (string-match ".v$" buffer-file-name)
-    (load "~/.emacs.d/personal/05_coq.el"))
+(defun suffix-match (pattern)
+  (string-match pattern buffer-file-name))
 
-  (when (string-match ".tex$" buffer-file-name)
-    (load "~/.emacs.d/personal/06_latex.el"))
+(defun loader (patterns file)
+  (when (some #'suffix-match patterns)
+    (load (pfolder file))))
 
-  (when (string-match ".html" buffer-file-name)
-    (load "~/.emacs.d/personal/07_web.el"))
+(defun check-filetype ()
+  (loader '("\\.ml$" "\\.mli$" "\\.mll$" "\\.mly$") "02_ocaml.el")
+  (loader '("\\.scala$") "03_scala.el")
+  (loader '("\\.c$" "\\.h$") "04_c.el")
+  (loader '("\\.v$") "05_coq.el")
+  (loader '("\\.tex$") "06_latex.el")
+  (loader '("\\.html$") "07_web.el")
+  (loader '("\\.py$") "09_python.el")
   )
 
 (load "~/.emacs.d/personal/08_org.el")
-(add-hook 'find-file-hook 'my-set-tab-mode)
+(add-hook 'find-file-hook 'check-filetype)
 
 ;;; configuration-loader.el ends here
