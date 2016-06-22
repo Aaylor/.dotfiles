@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_DIR=$HOME/.zsh.d
 
 ZSH_THEME="norm"                # Theme
 COMPLETION_WAITING_DOTS="true"  # Display dots when waiting for completions
@@ -14,9 +15,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 
 ## User configuration
 
-export EDITOR='vim'
-export CLICOLOR=1			# ls coloration
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx	# ls coloration
+if [ "$(uname)" = "Darwin" ]; then
+    export CLICOLOR=1                      # ls coloration
+    export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx # ls coloration
+fi
 
 # Completion
 autoload -U compinit
@@ -65,8 +67,13 @@ unsetopt rm_star_silent         # ask for confirmation for `rm *' or `rm path/
 
 
 # External sources
-source $HOME/.zsh.d/fundef.zsh
-source $HOME/.zsh.d/aliases.zsh
+__import_external_source () {
+    [ -f $ZSH_DIR/$1.zsh ] && \
+        source $ZSH_DIR/$1.zsh || \
+        echo "warning: $ZSH_DIR/$1.zsh does not exists." >&2
+}
+__import_external_source "fundef"
+__import_external_source "aliases"
 
 export PATH="$HOME/.cask/bin:$PATH"
 
