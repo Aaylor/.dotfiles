@@ -17,6 +17,6 @@
 (set-keyboard-coding-system 'utf-8)
 
 (set-face-bold 'bold nil) ;; no bold font
-(set-frame-font "Inconsolata for Powerline 13")
+(set-frame-font "Fira Mono 11")
 
 ;;; pre-configuration.el ends here

@@ -16,7 +16,7 @@
 (depends-on "tuareg")
 (depends-on "yasnippet")
 (depends-on "whitespace")
-
+(depends-on "flycheck-tip")
 
 ;; Docker
 (depends-on "dockerfile-mode")
@@ -38,6 +38,12 @@
 ;; git
 (depends-on "git-gutter")
 (depends-on "magit")
+
+
+;; lua
+(depends-on "company-lua")
+(depends-on "flymake-lua")
+(depends-on "lua-mode")
 
 
 ;; python
