@@ -1,4 +1,11 @@
 
+# $1 <- for osx platform
+# $2 <- for linux platform
+__platform() {
+    p="$(uname)"
+    [ "$p" = "Darwin" ] && echo "$1" || echo "$2"
+}
+
 ## Human friendly
 alias df='df -h'
 alias du='du -h -d 2'
@@ -17,10 +24,7 @@ alias zar='source $HOME/.zsh.d/aliases.zsh'
 alias vi='/usr/local/bin/vim -p'
 alias vim='/usr/local/bin/vim -p'
 alias gvim='gvim -p'
-
-test `uname` = "Darwin" && \
-    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs' || \
-    alias emacs='emacs -mm'
+alias emacs="$(__platform '/Applications/Emacs.app/Contents/MacOS/Emacs' 'emacs -mm')"
 
 # Git shortcuts
 alias gi="$EDITOR .gitignore"
@@ -38,9 +42,6 @@ alias gdi='git diff'
 alias gr='git rebase'
 alias gresh='git reset --hard'
 
-# terminal exit
-alias :q='exit'
 
-
-# Alias to defined functions
-alias fp="nocorrect fp"
+# Applications
+alias love="$(__platform '/Applications/love.app/Contents/MacOs/love' '')"
