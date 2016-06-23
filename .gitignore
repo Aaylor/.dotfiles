@@ -1,2 +1,4 @@
 .emacs.d/.cask
-.emads.d/auto-save-list
+.emacs.d/auto-save-list
+.emacs.d/tramp
+.emacs.d/.python-environments
