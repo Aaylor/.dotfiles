@@ -86,3 +86,6 @@ clear
 name=$(whoami | sed -e 's/\(\<[a-zA-Z]\)\([a-zA-Z]*\>\)/\u\1\L\2/g')
 echo -e "\033[1;32mWelcome, $name.\033[0m"
 echo
+
+# TIS configuration
+. ~/.tis/suite/shell/init.zsh

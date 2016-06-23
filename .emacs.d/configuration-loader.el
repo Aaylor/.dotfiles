@@ -5,10 +5,6 @@
 (load "~/.emacs.d/personal/00_global.el")
 (load "~/.emacs.d/personal/01_global_plugins.el")
 
-(require 'dockerfile-mode)
-(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
-
-
 (defun pfolder (file)
   (concat "~/.emacs.d/personal/" file))
 

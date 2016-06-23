@@ -22,18 +22,18 @@
 (setq company-idle-delay 0)
 
 
+;; popup
+(require 'popup)
+
 ;; flycheck
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-cask-setup)
 (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
 
-;; fill column indicator
-(require 'fill-column-indicator)
-(setq fci-rule-width 1)
-(setq fci-rule-color "red")
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+;; flycheck tip
+(require 'flycheck-tip)
+(define-key global-map (kbd "C-c C-n") 'flycheck-tip-cycle)
 
 ;; flx-ido mode
 (require 'flx-ido)
@@ -54,33 +54,23 @@
 (global-git-gutter-mode +1)
 (global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
 
-;; magit
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-c c") 'magit-commit)
-(global-set-key (kbd "C-c C-f") 'magit-fetch)
-(global-set-key (kbd "C-c C-p") 'magit-pull)
-(global-set-key (kbd "C-c M-p") 'magit-push)
-(global-set-key (kbd "C-c C-b") 'magit-branch-and-checkout)
-(global-set-key (kbd "C-c M-c") 'magit-checkout)
-(global-set-key (kbd "C-c C-r") 'magit-rebase)
-(global-set-key (kbd "C-c C-a") 'magit-add-change-log-entry)
-
 ;; powerline
 (require 'powerline)
 (powerline-center-theme)
 
-;; ;; hightlight indent guide
-;; (highlight-indent-guides-mode)
 ;; highlight-chars
 (require 'highlight-chars)
 (hc-toggle-highlight-hard-spaces)
 (hc-toggle-highlight-tabs)
 (hc-toggle-highlight-trailing-whitespace)
 
-;; sr-speedbar
-;; (require 'sr-speedbar)
-;; (global-set-key (kbd "M-s") 'sr-speedbar-toggle)
-;; (speedbar-add-supported-extension ".bash")
+;; 80 column rules
+(require 'column-enforce-mode)
+(add-hook 'prog-mode-hook 'column-enforce-mode)
+
+;; rainbow delimiter
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; smartparens
 (electric-pair-mode 1)

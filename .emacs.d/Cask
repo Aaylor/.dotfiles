@@ -3,23 +3,21 @@
 
 (package-file "~/.cask/cask.el")
 
-(depends-on "company")
-(depends-on "company-c-headers")
-(depends-on "fill-column-indicator")
-(depends-on "flycheck-cask")
+;; cask
+(depends-on "flycheck-cask")            ; flycheck for cask projects
 (depends-on "flycheck-color-mode-line")
-(depends-on "flx-ido")
-(depends-on "monokai-theme")
-(depends-on "neotree")
-(depends-on "powerline")
-(depends-on "smartparens")
-(depends-on "tuareg")
-(depends-on "yasnippet")
-(depends-on "whitespace")
-(depends-on "flycheck-tip")
 
-;; Docker
-(depends-on "dockerfile-mode")
+;; c
+(depends-on "company-c-headers")        ; c/c++ backend for company
+
+;; git
+(depends-on "git-gutter")
+
+;; haskell
+(depends-on "flycheck-haskell")
+(depends-on "flymake-haskell-multi")
+(depends-on "ghc")
+(depends-on "haskell-mode")
 
 ;; latex
 (depends-on "auctex")
@@ -29,34 +27,38 @@
 (depends-on "latex-preview-pane")
 (depends-on "latex-pretty-symbols")
 
-;; git
-(depends-on "git-gutter")
-
 ;; lua
 (depends-on "company-lua")
 (depends-on "flymake-lua")
 (depends-on "lua-mode")
 
+;; markdown
+(depends-on "markdown-mode")
+(depends-on "gh-md")
+
+;; ocaml
+(depends-on "tuareg")
+
+;; org-mode
+(depends-on "org")
 
 ;; python
 (depends-on "flycheck-pyflakes")
 (depends-on "company-jedi")
 (depends-on "jedi-core")
 
-;; org-mode
-(depends-on "org")
-
-;; Haskell
-(depends-on "flycheck-haskell")
-(depends-on "flymake-haskell-multi")
-(depends-on "ghc")
-(depends-on "haskell-mode")
-
-;; Markdown
-(depends-on "markdown-mode")
-(depends-on "gh-md")
-
 ;; Others
-(depends-on "crosshairs")
-(depends-on "highlight-chars")
-(depends-on "highlight-indent-guides")
+(depends-on "column-enforce-mode")      ; enforce 80 column rules
+(depends-on "company")                  ; completion engine
+(depends-on "crosshairs")               ; highlight current line
+(depends-on "flx-ido")                  ; fuzzy matching integration
+(depends-on "flycheck-tip")             ; show flycheck messages as popup
+(depends-on "highlight-chars")          ; highlight set of characters
+(depends-on "highlight-indent-guides")  ; highlight indentation
+(depends-on "neotree")                  ; folder tree
+(depends-on "popup")                    ; allow popup
+(depends-on "powerline")                ; powerline for emacs
+(depends-on "rainbow-delimiters")       ; display parenthesis with ccolors
+(depends-on "smartparens")              ; insert automatically parenthesis
+(depends-on "yasnippet")                ; snippets
+
