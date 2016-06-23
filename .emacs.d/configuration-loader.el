@@ -29,6 +29,7 @@
   (loader '("\\.py$") "09_python.el")
   (loader '("\\.lua$") "10_lua.el")
   (loader '("\\.hs$") "11_haskell.el")
+  (loader '("\\.zsh$") "12_zsh.el")
   )
 
 (load "~/.emacs.d/personal/08_org.el")
