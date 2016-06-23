@@ -58,11 +58,13 @@
 (global-set-key [f7]   'next-error)
 (global-set-key [(control f7)]   'previous-error)
 (global-set-key [(shift f7)]   'first-error)
+(global-set-key [f10] 'merlin-error-next)
 (global-set-key [(control f10)] 'merlin-error-prev)
 (global-set-key [(ctrl x)(up)] 'beginning-of-buffer)
 (global-set-key [(ctrl x)(down)] 'end-of-buffer)
 (global-set-key [(ctrl x)(end)] 'save-buffers-kill-terminal)
 (global-set-key [(control tab)] 'company-complete)
+(global-set-key (kbd "C-c g") 'find-file-at-point)
 
 (global-set-key [(meta f10)] 'toggle-frame-fullscreen)
 

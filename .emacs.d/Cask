@@ -21,24 +21,16 @@
 ;; Docker
 (depends-on "dockerfile-mode")
 
-
-;; Scala
-(depends-on "scala-mode2")
-(depends-on "ensime")
-
-
 ;; latex
-(depends-on "latex-preview-pane")
-(depends-on "auctex-latexmk")
+(depends-on "auctex")
+(depends-on "company-auctex")
 (depends-on "company-math")
 (depends-on "latex-extra")
+(depends-on "latex-preview-pane")
 (depends-on "latex-pretty-symbols")
-
 
 ;; git
 (depends-on "git-gutter")
-(depends-on "magit")
-
 
 ;; lua
 (depends-on "company-lua")
@@ -51,12 +43,20 @@
 (depends-on "company-jedi")
 (depends-on "jedi-core")
 
-
-;; plot
-(depends-on "gnuplot-mode")
-
 ;; org-mode
 (depends-on "org")
 
+;; Haskell
+(depends-on "flycheck-haskell")
+(depends-on "flymake-haskell-multi")
+(depends-on "ghc")
+(depends-on "haskell-mode")
+
+;; Markdown
 (depends-on "markdown-mode")
 (depends-on "gh-md")
+
+;; Others
+(depends-on "crosshairs")
+(depends-on "highlight-chars")
+(depends-on "highlight-indent-guides")

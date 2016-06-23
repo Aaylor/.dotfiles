@@ -16,7 +16,9 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 
-(set-face-bold 'bold nil) ;; no bold font
-(set-frame-font "Fira Mono 11")
+(cond
+ ((string-equal system-type "darwin")
+  (set-face-bold 'bold nil) ;; no bold font
+  (set-frame-font "Fira Mono 11")))
 
 ;;; pre-configuration.el ends here

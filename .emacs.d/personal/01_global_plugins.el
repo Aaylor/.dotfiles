@@ -69,10 +69,18 @@
 (require 'powerline)
 (powerline-center-theme)
 
+;; ;; hightlight indent guide
+;; (highlight-indent-guides-mode)
+;; highlight-chars
+(require 'highlight-chars)
+(hc-toggle-highlight-hard-spaces)
+(hc-toggle-highlight-tabs)
+(hc-toggle-highlight-trailing-whitespace)
+
 ;; sr-speedbar
-(require 'sr-speedbar)
-(global-set-key (kbd "M-s") 'sr-speedbar-toggle)
-(speedbar-add-supported-extension ".bash")
+;; (require 'sr-speedbar)
+;; (global-set-key (kbd "M-s") 'sr-speedbar-toggle)
+;; (speedbar-add-supported-extension ".bash")
 
 ;; smartparens
 (electric-pair-mode 1)

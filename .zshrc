@@ -7,7 +7,7 @@ COMPLETION_WAITING_DOTS="true"  # Display dots when waiting for completions
 
 
 # Load plugins...
-plugins=(brew colored-man extract jump git git-extra tmux sbt zsh-syntax-highlighting)
+plugins=(brew colored-man extract jump git git-extra tmux zsh-syntax-highlighting)
 
 # syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
@@ -18,6 +18,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 if [ "$(uname)" = "Darwin" ]; then
     export CLICOLOR=1                      # ls coloration
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx # ls coloration
+fi
+
+if [ "$(uname)" = "Linux" ]; then
+    export EDITOR='emacs -mm'
 fi
 
 # Completion
@@ -76,6 +80,7 @@ __import_external_source "fundef"
 __import_external_source "aliases"
 
 export PATH="$HOME/.cask/bin:$PATH"
+source $HOME/.profile
 
 clear
 name=$(whoami | sed -e 's/\(\<[a-zA-Z]\)\([a-zA-Z]*\>\)/\u\1\L\2/g')
