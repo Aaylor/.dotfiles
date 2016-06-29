@@ -3,7 +3,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/colorscheme")
 (require 'color-theme-tomorrow)
-(color-theme-tomorrow-night-bright)
+(color-theme-tomorrow-night)
 
 (setq
  inhibit-startup-message t         ;; remove startup message
