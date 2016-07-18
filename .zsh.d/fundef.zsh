@@ -7,6 +7,13 @@ function git-rewind() {
 }
 alias grewind="git-rewind"
 
+function git-ignore() {
+    base_link="http://gitignore.io/api/"
+    [ "$1" = "list" ] && redirect="" || redirect="-o.gitignore"
+    curl -L -s $redirect "http://gitignore.io/api/$1"
+}
+alias ggi="git-ignore"
+
 # Ocaml dev
 function odast() {
     [ $# -eq 0 ] && echo "odast file.ml ..." >&2 && return 1
