@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_DIR=$HOME/.zsh.d
 
-ZSH_THEME="norm"                # Theme
+ZSH_THEME="dieter"              # Theme
 COMPLETION_WAITING_DOTS="true"  # Display dots when waiting for completions
 
 
@@ -76,13 +76,17 @@ __import_external_source () {
         source $ZSH_DIR/$1.zsh || \
         echo "warning: $ZSH_DIR/$1.zsh does not exists." >&2
 }
+__import_external_source "init"
 __import_external_source "fundef"
 __import_external_source "aliases"
 
-export PATH="$HOME/.cask/bin:$PATH"
+export PATH="/usr/local/bin:$HOME/.cask/bin:$PATH"
 source $HOME/.profile
 
 clear
 name=$(whoami | sed -e 's/\(\<[a-zA-Z]\)\([a-zA-Z]*\>\)/\u\1\L\2/g')
 echo -e "\033[1;32mWelcome, $name.\033[0m"
 echo
+
+# OPAM configuration
+. /Users/aaylor/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
