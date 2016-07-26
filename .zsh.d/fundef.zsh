@@ -22,14 +22,15 @@ function odast() {
 
 # Update scripts.
 function update-script() {
-    script_name="$1"
-    directory_path="$HOME/bin/.$script_name"
-    if [ ! -d "$HOME/bin/.$script_name" ]; then
-        git clone git@github.com:Aaylor/$script_name.git $directory_path
-        ln -s $directory_path/$script_name $HOME/bin/$script_name
-    else
-        cd $directory_path; git pull
-    fi
+    [ -z "$1" ] && echo "update-script <script-name>" && exit 1
+    directory_path="$HOME/.zsh.d/scripts/$1"
+    script="$HOME/bin/$1"
+    echo "$1: "
+    [ ! -d "$directory_path" ] && \
+        git clone git@github.com:Aaylor/$1.git $directory_path || \
+        ( cd $directory_path; git pull )
+    [ ! -f "$script" ] && ln -s "$directory_path/$1" "$HOME/bin/$1"
+    echo
 }
 
 function update-self-script() {
