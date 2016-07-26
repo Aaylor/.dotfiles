@@ -23,7 +23,7 @@ function odast() {
 # Update scripts.
 function update-script() {
     [ -z "$1" ] && echo "update-script <script-name>" && exit 1
-    directory_path="$HOME/.zsh.d/scripts/$1"
+    directory_path="$ZSH_DIR/scripts/$1"
     script="$HOME/bin/$1"
     echo "$1: "
     [ ! -d "$directory_path" ] && \

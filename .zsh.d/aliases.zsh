@@ -18,7 +18,7 @@ alias psg="ps aux | grep "      # grep on all processus
 # Shortcuts
 alias j="jobs"
 alias c='clear'
-alias zar='source $HOME/.zsh.d/aliases.zsh'
+alias zar='source $ZSH_DIR/aliases.zsh'
 
 # Editor shortcuts
 alias vi='/usr/local/bin/vim -p'

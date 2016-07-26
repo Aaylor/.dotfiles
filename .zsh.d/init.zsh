@@ -4,4 +4,4 @@ mkdir -p $HOME/bin
 PATH="$HOME/bin:$PATH"
 
 # Scripts folder
-mkdir -p $HOME/.zsh.d/scripts
+mkdir -p $ZSH_DIR/scripts
