@@ -3,3 +3,4 @@
 .emacs.d/tramp
 .emacs.d/.python-environments
 .emacs.d/ido.last
+.zsh.d/scripts/
