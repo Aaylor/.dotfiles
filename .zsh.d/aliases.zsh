@@ -24,7 +24,7 @@ alias zar='source $HOME/.zsh.d/aliases.zsh'
 alias vi='/usr/local/bin/vim -p'
 alias vim='/usr/local/bin/vim -p'
 alias gvim='gvim -p'
-alias emacs="$(__platform '/Applications/Emacs.app/Contents/MacOS/Emacs' 'emacs -mm')"
+alias emacs="$(__platform '/Applications/Emacs.app/Contents/MacOS/Emacs' 'emacs')"
 
 # Git shortcuts
 alias gi="$EDITOR .gitignore"
