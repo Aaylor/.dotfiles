@@ -87,6 +87,3 @@ clear
 name=$(whoami | sed -e 's/\(\<[a-zA-Z]\)\([a-zA-Z]*\>\)/\u\1\L\2/g')
 echo -e "\033[1;32mWelcome, $name.\033[0m"
 echo
-
-# OPAM configuration
-. /Users/aaylor/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
