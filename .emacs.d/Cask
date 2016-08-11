@@ -52,11 +52,9 @@
 (depends-on "company")                  ; completion engine
 (depends-on "crosshairs")               ; highlight current line
 (depends-on "flx-ido")                  ; fuzzy matching integration
-(depends-on "flycheck-tip")             ; show flycheck messages as popup
 (depends-on "highlight-chars")          ; highlight set of characters
 (depends-on "highlight-indent-guides")  ; highlight indentation
 (depends-on "neotree")                  ; folder tree
-(depends-on "popup")                    ; allow popup
 (depends-on "powerline")                ; powerline for emacs
 (depends-on "rainbow-delimiters")       ; display parenthesis with ccolors
 (depends-on "smartparens")              ; insert automatically parenthesis

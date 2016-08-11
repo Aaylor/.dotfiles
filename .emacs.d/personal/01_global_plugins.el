@@ -22,18 +22,11 @@
 (setq company-idle-delay 0)
 
 
-;; popup
-(require 'popup)
-
 ;; flycheck
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-cask-setup)
 (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)
-
-;; flycheck tip
-(require 'flycheck-tip)
-(define-key global-map (kbd "C-c C-n") 'flycheck-tip-cycle)
 
 ;; flx-ido mode
 (require 'flx-ido)
