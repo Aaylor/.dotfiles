@@ -67,21 +67,13 @@ unsetopt bg_nice                # no lower prio for background jobs
 unsetopt hup                    # no hup signal at shell exit
 unsetopt ignore_eof             # do not exit on end-of-file
 unsetopt list_beep              # no bell on ambiguous completion
+unsetopt nomatch                # avoid "no matched found" errors
 unsetopt rm_star_silent         # ask for confirmation for `rm *' or `rm path/
 
 
-# External sources
-__import_external_source () {
-    [ -f $ZSH_DIR/$1.zsh ] && \
-        source $ZSH_DIR/$1.zsh || \
-        echo "warning: $ZSH_DIR/$1.zsh does not exists." >&2
-}
-__import_external_source "init"
-__import_external_source "fundef"
-__import_external_source "aliases"
-
-export PATH="/usr/local/bin:$HOME/.cask/bin:$PATH"
+export PATH="$PATH:/usr/local/bin:$HOME/.cask/bin"
 source $HOME/.profile
+
 
 clear
 name=$(whoami | sed -e 's/\(\<[a-zA-Z]\)\([a-zA-Z]*\>\)/\u\1\L\2/g')
