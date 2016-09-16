@@ -37,6 +37,7 @@ values."
             shell-default-position 'bottom)
      python
      spacemacs-base-additionals
+     space-osx
      spotify
      syntax-checking
      version-control
@@ -259,6 +260,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (setq tab-always-indent t)            ; do ONLY indentation.
+  (set-default 'indent-tabs-mode nil)   ; tabs are now spaces
+  (setq-default indent-tabs-mode nil)   ; tabs are now spaces
 
   ;; Colorscheme
   (add-to-list 'load-path "~/.emacs.d/private/colorscheme")
@@ -288,8 +291,6 @@ you should place your code here."
 
   ;; neotree
   (global-set-key [(shift f1)] 'neotree-toggle)
-  ;; (define-key neotree-mode-map "i" #'neotree-enter-vertical-split)
-  ;; (define-key neotree-mode-map "I" #'neotree-enter-horizontal-split)
   (setq neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$"
                                  "\\.o$" "\\.cmi$" "\\.cmt$" "\\.cmo$"
                                  "\\.cmx$" "\\.cmti$"))
