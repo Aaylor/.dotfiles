@@ -28,7 +28,6 @@ values."
      c-c++
      coding-guides
      emacs-lisp
-     ocaml
      git
      markdown
      latex
@@ -37,6 +36,7 @@ values."
             shell-default-position 'bottom)
      python
      spacemacs-base-additionals
+     space-ocaml
      space-osx
      spotify
      syntax-checking
@@ -130,7 +130,7 @@ values."
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m)
-   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   dotspacemacs-major-mode-emacs-leader-key "M-p"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
    ;; Setting it to a non-nil value, allows for separate commands under <C-i>
@@ -239,7 +239,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup changed
+   dotspacemacs-whitespace-cleanup nil
    ))
 
 (defun dotspacemacs/user-init ()
