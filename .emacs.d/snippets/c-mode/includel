@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: includel
-# key: inc
-# --
-#include "$0"
-$1
